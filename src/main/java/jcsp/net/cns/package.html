@@ -1,0 +1,21 @@
+<BODY>
+<p>
+This package contains the files specifically for the
+JCSP.NET Channel Name Service (CNS).
+A CNS provides a broker service, enabling distributed JCSP processes
+to set up communications with each other.
+Networked channels have names.
+Currently, networked channels are automatically <i>Any-One</i>.
+The reading process is responsible for creating the channel and
+(optionally) registering it with a CNS with some unique (to the CNS)
+name.  Writing processes need to know (or be told) the name of
+a networked channel to connect to it by the CNS.
+Communications between networked writers and reader then proceed
+directly (independent from the CNS).
+</p>
+<p>
+See <code>{@link jcsp.net.cns.CNS}</code>
+and <code>{@link jcsp.net.cns.CNSService}</code>
+for information on the service.
+</p>
+</BODY>
