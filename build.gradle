@@ -1,14 +1,41 @@
 group 'jcsp'
-version 'alpha-1.1.2'
+version '1.1.0'
 
 apply plugin: 'java'
 
 sourceCompatibility = 1.8
 
+def home = null
+home = System.getenv('JCSP_HOME')
+if (home == null){
+  throw new GradleException('JCSP_HOME environment variable is not defined')
+}
+println "JCSP home folder is $home "
+def libDir = "${getBuildDir()}/libs"
+//println "Lib dir = $libDir"
+def jarFile = "$libDir/${project.name}-${version}.jar"
+//println "jar file to copy $jarFile"
+
+task makeJar ( dependsOn: build){
+  doLast {
+    copy {
+      from "$jarFile"
+      into "$home"
+    }
+    println "Copied $jarFile into $home"
+  }
+}
+
 repositories {
     mavenCentral()
 }
-
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+  testCompile group: 'junit', name: 'junit', version: '4.12'
 }
+
+
+
+
+
+
+
