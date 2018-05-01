@@ -55,12 +55,15 @@ repositories {
     jcenter()
 }
 dependencies {
-    compile group: 'JonKerridge', name: 'jcsp', version: '1.1.0'
+    compile group: 'jcsp', name: 'jcsp', version: '1.1.0'
 }
 
 **Building the Library**
 
-The src folder contains both main and test folders in the format used by Gradle
+The src folder contains both main and test folders in the format used by Gradle.
+To install to your local Maven repo, use
+
+gradle clean install
 
 **References**
 
