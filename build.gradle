@@ -20,7 +20,7 @@ Properties properties = new Properties()
 try {
     properties.load(project.rootProject.file('local.properties').newDataInputStream())
 } catch (Exception e) {
-    e.printStackTrace()
+    logger.warn("Missing local.properties - won't be able to upload to Bintray.  Please add local.properties with properties bintrayUser and bintrayApiKey.")
 }
 
 allprojects {
@@ -46,6 +46,7 @@ publishing {
 bintray {
 	user = properties.containsKey('bintrayUser') ? properties.getProperty('bintrayUser') : System.getenv('BINTRAY_USER')
 	key = properties.containsKey('bintrayApiKey') ? properties.getProperty('bintrayApiKey') : System.getenv('BINTRAY_API_KEY')
+	publications = ['MyPublication']
 	pkg {
 		repo = 'jcsp'
 		name = rootProject.name
