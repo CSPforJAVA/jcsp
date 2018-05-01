@@ -55,7 +55,7 @@ repositories {
     jcenter()
 }
 dependencies {
-    compile group: 'JonKerridge', name: 'jcsp', version: '1.1.0'
+    compile group: 'jcsp', name: 'jcsp', version: '1.1.0'
 }
 
 **Building the Library**
