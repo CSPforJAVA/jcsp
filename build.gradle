@@ -23,6 +23,7 @@ try {
     logger.warn("Missing local.properties - won't be able to upload to Bintray.  Please add local.properties with properties bintrayUser and bintrayApiKey.")
 }
 
+
 allprojects {
 	repositories {
 		jcenter()
@@ -73,8 +74,8 @@ publishing {
 }
 
 bintray {
-	user = properties.containsKey('bintrayUser') ? properties.getProperty('bintrayUser') : System.getenv('BINTRAY_USER')
-	key = properties.containsKey('bintrayApiKey') ? properties.getProperty('bintrayApiKey') : System.getenv('BINTRAY_API_KEY')
+	user = properties.containsKey('bintray.user') ? properties.getProperty('bintray.user') : System.getenv('BINTRAY_USER')
+	key = properties.containsKey('bintray.apikey') ? properties.getProperty('bintray.apikey') : System.getenv('BINTRAY_API_KEY')
 	publications = ['MyPublication']
 	pkg {
 		repo = 'jcsp'
