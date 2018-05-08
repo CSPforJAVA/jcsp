@@ -144,7 +144,7 @@ net2 package also contains the ability to create 'mobile' processes, in that pro
 over net channels as first class objects.
 
 
-Request for Feedback
+**_Request for Feedback_**
 Currently, the more complex the system requirements, the less likely it becomes that concurrency (or multi-threading) 
 play a major role. This is because concurrency is thought to make system design especially hard - so many additional 
 problems (race hazards, deadlock etc.) to worry about. A good model of concurrency, however, should simplify the 
@@ -152,6 +152,6 @@ design, implementation, verification and maintenance of systems. A design goal f
 to enable concurrency to play that natural role. Feedback on moving towards that goal is always welcome. 
 Email messages can be sent to either CSPforJAVA@outlook.com or CSPforJava@gmail.com
 
-Version Comments
+**_Version Comments_**
 jcsp-alpha-1.1.2 removed the win32 folder and removed refernces to it from the jcsp/net package.
 jcsp-1.1.0.jar is the most up-to-date version
