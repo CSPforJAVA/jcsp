@@ -48,16 +48,21 @@ Special thanks are owed to Paul Austin, who developed the original JCSP library.
 
 **Using the Library**
 
-In a build.gradle file you should use:
-please note this is yet to be done
+In a build.gradle file you should use, the following to access the library:
 
 repositories {
-    jcenter()
-}
-dependencies {
-    compile group: 'jcsp', name: 'jcsp', version: '1.1.0'
+  maven{
+    url "https://dl.bintray.com/jonkerridge/jcsp"
+  }
+  jcenter()
 }
 
+dependencies {
+  compile 'jcsp:jcsp:1.1.0'
+  compile group: 'junit', name: 'junit', version: '4.12'
+}
+
+This dependency will chnage once the library has been moved to CSPforJAVA.
 **Building the Library**
 
 The src folder contains both main and test folders in the format used by Gradle.
@@ -148,4 +153,5 @@ to enable concurrency to play that natural role. Feedback on moving towards that
 Email messages can be sent to either CSPforJAVA@outlook.com or CSPforJava@gmail.com
 
 Version Comments
-jcsp-alpha-1.1.2 removed the win32 folder and removed refernces to it from the jcsp/net package
+jcsp-alpha-1.1.2 removed the win32 folder and removed refernces to it from the jcsp/net package.
+jcsp-1.1.0.jar is the most up-to-date version
