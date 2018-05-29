@@ -20,7 +20,7 @@ Properties properties = new Properties()
 try {
     properties.load(project.rootProject.file('local.properties').newDataInputStream())
 } catch (Exception e) {
-    logger.warn("Missing local.properties - won't be able to upload to Bintray.  Please add local.properties with properties bintrayUser and bintrayApiKey.")
+    logger.warn("Missing local.properties - won't be able to upload to Bintray.  \nPlease add local.properties with properties bintray.user and bintray.apikey.")
 }
 
 
@@ -82,8 +82,8 @@ bintray {
 		name = rootProject.name
 		userOrg = user
 		licenses = ['Apache-2.0', 'LGPL-2.1']
-		vcsUrl = 'https://github.com/JonKerridge/jcsp.git'
-		labels = ['csp', 'concurrency']
+		vcsUrl = 'https://github.com/cspforjava/jcsp.git'
+		labels = ['csp', 'concurrency', 'parallelism', 'distributed systems']
 		publicDownloadNumbers = true
 		version {
 			name = project.property('version')
