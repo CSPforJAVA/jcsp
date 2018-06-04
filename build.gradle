@@ -13,6 +13,7 @@ group 'cspforjava'
 version '1.1.0'
 
 apply plugin: 'java'
+apply plugin: 'maven'
 
 sourceCompatibility = 1.8
 
@@ -101,6 +102,25 @@ task wrapper(type: Wrapper) {
 }
 
 
+
+task writeNewPom << {
+	pom {
+		project {
+			licenses {
+				license {
+					name 'The Apache Software License, Version 2.0'
+					url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+					distribution 'repo'
+				}
+				license {
+					name 'GNU LGPL Version 2.1 or greater'
+					url 'https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html'
+					distribution 'repo'
+				}
+			}
+		}
+	}.writeTo("pom.xml")
+}
 
 
 
