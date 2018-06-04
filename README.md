@@ -51,18 +51,15 @@ Special thanks are owed to Paul Austin, who developed the original JCSP library.
 In a build.gradle file you should use, the following to access the library:
 
 repositories {
-  maven{
-    url "https://dl.bintray.com/jonkerridge/jcsp"
-  }
-  jcenter()
+    jcenter()
 }
 
 dependencies {
-  compile 'jcsp:jcsp:1.1.0'
+  compile 'cspforjava:jcsp:1.1.0'
   compile group: 'junit', name: 'junit', version: '4.12'
 }
 
-This dependency will chnage once the library has been moved to CSPforJAVA.
+
 **Building the Library**
 
 The src folder contains both main and test folders in the format used by Gradle.
