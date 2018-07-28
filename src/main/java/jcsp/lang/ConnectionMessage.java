@@ -1,4 +1,3 @@
-
 //////////////////////////////////////////////////////////////////////
 //                                                                  //
 //  JCSP ("CSP for Java") Libraries                                 //
@@ -17,36 +16,11 @@
 //  Author contacts: P.H.Welch@kent.ac.uk K.Chalmers@napier.ac.uk   //
 //                                                                  //
 //////////////////////////////////////////////////////////////////////
-
 package jcsp.lang;
 
-class SharedChannelInputImpl<T> implements SharedChannelInput<T> {
+import java.io.Serializable;
 
-	private ChannelInternals<T> channel;
-	private int immunity;
-	
-	SharedChannelInputImpl(ChannelInternals<T> _channel, int _immunity) {
-		channel = _channel;
-		immunity = _immunity;
-	}
-	
-	public void endRead() {
-		channel.endRead();
-
-	}
-
-	public T read() {
-		return channel.read();
-	}
-
-	public T startRead() {
-		return channel.startRead();
-	}
-
-	public void poison(int strength) {
-		if (strength > immunity) {
-			channel.readerPoison(strength);
-		}
-	}
-
+class ConnectionMessage<T> implements Serializable
+{
+    T data;
 }
