@@ -76,15 +76,15 @@ package jcsp.lang;
  * @author P.H. Welch
  */
 
-public interface One2OneChannel
+public interface One2OneChannel<T>
 {
     /**
      * Returns the input channel end.
      */
-    public AltingChannelInput in();
+    public AltingChannelInput<T> in();
 
     /**
      * Returns the output channel end.
      */
-    public ChannelOutput out();
+    public ChannelOutput<T> out();
 }
