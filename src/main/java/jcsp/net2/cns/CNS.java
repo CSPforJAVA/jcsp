@@ -808,7 +808,7 @@ public class CNS
      * @throws IllegalArgumentException
      *             Thrown if the channel name is already registered
      */
-    public static NetAltingChannelInput net2one(String name)
+    public static <T> NetAltingChannelInput<T> net2one(String name)
         throws IllegalStateException, IllegalArgumentException
     {
         // Check if the CNS connection is initialised
@@ -816,7 +816,7 @@ public class CNS
             throw new IllegalStateException("The connection to the CNS has not been initialised");
 
         // Create a new channel
-        NetAltingChannelInput toReturn = NetChannel.net2one();
+        NetAltingChannelInput<T> toReturn = NetChannel.net2one();
 
         // Attempt to register
         if (CNS.service.register(name, toReturn))
