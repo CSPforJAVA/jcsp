@@ -365,7 +365,7 @@ public final class NetChannel
      * @throws JCSPNetworkException
      *             Thrown if something goes wrong in the underlying architecture
      */
-    public static NetChannelOutput one2net(NetChannelLocation loc, int immunityLevel)
+    public static <T> NetChannelOutput<T> one2net(NetChannelLocation loc, int immunityLevel)
         throws JCSPNetworkException
     {
         return factory.one2net(loc, immunityLevel);
