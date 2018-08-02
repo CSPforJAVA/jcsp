@@ -351,9 +351,7 @@ public final class StandardNetChannelEndFactory
     public <T> NetChannelOutput<T> one2net(NetChannelLocation loc, int immunityLevel)
         throws JCSPNetworkException
     {
-		NetChannelOutput<T> toReturn = One2NetChannel.create (loc, immunityLevel, new ObjectNetworkMessageFilter.FilterTX());
-//        return One2NetChannel.create(
-		return toReturn;
+        return One2NetChannel.create(loc, immunityLevel, new ObjectNetworkMessageFilter.FilterTX());
     }
 
     /**
