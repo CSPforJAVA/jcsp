@@ -68,7 +68,7 @@ package jcsp.lang;
   public int startRead() {
 	if (!syncDone) ab.sync();
 	syncDone = false;
-	return in.read();
+	return in.startRead();
   }
   
   
