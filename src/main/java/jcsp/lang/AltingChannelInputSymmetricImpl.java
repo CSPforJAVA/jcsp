@@ -68,7 +68,7 @@ class AltingChannelInputSymmetricImpl<T> extends AltingChannelInput<T>
   public T startRead() {
 	if (!syncDone) ab.sync();
 	syncDone = false;
-	return in.read();
+	return in.startRead();
   }
   
   

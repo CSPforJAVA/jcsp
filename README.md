@@ -55,7 +55,7 @@ repositories {
 }
 
 dependencies {
-  compile 'cspforjava:jcsp:1.1.0'
+  compile 'cspforjava:jcsp:1.1.1'
   compile group: 'junit', name: 'junit', version: '4.12'
 }
 
@@ -151,4 +151,4 @@ Email messages can be sent to either CSPforJAVA@outlook.com or CSPforJava@gmail.
 
 **_Version Comments_**
 jcsp-alpha-1.1.2 removed the win32 folder and removed refernces to it from the jcsp/net package.
-jcsp-1.1.0.jar is the most up-to-date version
+jcsp-1.1.1.jar is the most up-to-date version

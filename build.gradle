@@ -10,7 +10,7 @@ plugins {
 }
 
 group 'cspforjava'
-version '1.1.0-generics'
+version '1.1.1-generics-SNAPSHOT'
 
 apply plugin: 'java'
 apply plugin: 'maven'
