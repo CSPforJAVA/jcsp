@@ -31,7 +31,7 @@ import jcsp.net2.NodeID;
 
 /**
  * @author Kevin
- */
+ * @author JonKerridge to modify for java9  */
 final class DynamicClassLoader
     extends ClassLoader
 {
@@ -45,7 +45,8 @@ final class DynamicClassLoader
 
     DynamicClassLoader(NodeID originator, NetChannelLocation requestLocation)
     {
-        super(ClassLoader.getSystemClassLoader());
+//        super(ClassLoader.getSystemClassLoader());  // up to Java 8 version
+        super(ClassLoader.getPlatformClassLoader());      // java 9+ version
         this.originatingNode = originator;
         this.requestClassData = NetChannel.one2net(requestLocation);
     }
@@ -55,7 +56,8 @@ final class DynamicClassLoader
     {
         try
         {
-            Class clazz = Class.forName(className, false, ClassLoader.getSystemClassLoader());
+//            Class clazz = Class.forName(className, false, ClassLoader.getSystemClassLoader()); //Java8 version
+            Class clazz = Class.forName(className, false, ClassLoader.getPlatformClassLoader()); //Java9+ version
             return clazz;
         }
         catch (ClassNotFoundException cnfe)

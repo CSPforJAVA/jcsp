@@ -10,12 +10,13 @@ plugins {
 }
 
 group 'cspforjava'
-version '1.1.0'
+version '1.1.9'			// compatible with Java9+
 
 apply plugin: 'java'
 apply plugin: 'maven'
 
-sourceCompatibility = 1.8
+sourceCompatibility = 1.9
+targetCompatibility = 1.9
 
 Properties properties = new Properties()
 try {
@@ -97,13 +98,13 @@ dependencies {
   testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
-task wrapper(type: Wrapper) {
-  gradleVersion = '2.4'
-}
+//task wrapper(type: Wrapper) {
+//  gradleVersion = '2.4'
+//}
 
 
 
-task writeNewPom << {
+task writeNewPom (type: Wrapper) {
 	pom {
 		project {
 			licenses {

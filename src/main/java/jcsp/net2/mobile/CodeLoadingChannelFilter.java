@@ -30,6 +30,7 @@ import jcsp.net2.ObjectNetworkMessageFilter;
 
 /**
  * @author Kevin
+ * @author JonKerridge to modify for java9
  */
 public final class CodeLoadingChannelFilter
 {
@@ -96,7 +97,8 @@ public final class CodeLoadingChannelFilter
         {
             ClassLoader loader = obj.getClass().getClassLoader();
             byte[] bytes = this.internalFilter.filterTX(obj);
-            if (loader == ClassLoader.getSystemClassLoader() || loader == null)
+//            if (loader == ClassLoader.getSystemClassLoader() || loader == null)     //Java8 version
+            if (loader == ClassLoader.getPlatformClassLoader() || loader == null)     //Java9+ version
             {
                 DynamicClassLoaderMessage message = new DynamicClassLoaderMessage(Node.getInstance().getNodeID(),
                         (NetChannelLocation) ClassManager.in.getLocation(), bytes);

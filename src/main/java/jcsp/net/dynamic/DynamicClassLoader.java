@@ -33,7 +33,7 @@ import jcsp.util.filter.*;
  *
  *
  * @author Quickstone Technologies Limited
- */
+ * @author JonKerridge to modify for java9  */
 public class DynamicClassLoader implements Service
 {
    /**
@@ -48,7 +48,8 @@ public class DynamicClassLoader implements Service
       new ProcessManager(cm).start();
       channelRxFilter = new DeserializeChannelFilter(cm);
       NetAltingChannelInput requests = NetChannelEnd.createNet2One();
-      JFTP localFileService = new JFTP(ClassLoader.getSystemClassLoader(), requests, cm);
+//      JFTP localFileService = new JFTP(ClassLoader.getSystemClassLoader(), requests, cm); //Java * version
+      JFTP localFileService = new JFTP(ClassLoader.getPlatformClassLoader(), requests, cm); // Java9+ version
       new ProcessManager(localFileService).start();
       this.channelTxFilter = new DataSerializationFilter(requests.getChannelLocation());
       running = true;

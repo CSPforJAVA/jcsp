@@ -97,13 +97,13 @@ The server sees the {@link jcsp.lang.ChannelAccept} interface - invoking
 an {@link jcsp.lang.ChannelAccept#accept <TT>accept</TT>} will block until the client
 makes a call.
 <P>
-The network builder constructs a server-specific actual call channel by sub-classing
-from one of 
-{@link jcsp.lang.One2OneCallChannel}, {@link jcsp.lang.Any2OneCallChannel},
-{@link jcsp.lang.One2AnyCallChannel} and {@link jcsp.lang.Any2AnyCallChannel}.
-Precise rules for making this extension are given in their documentation.
+        The network builder constructs a server-specific actual call channel by sub-classing
+        from one of
+        {@link jcsp.lang.One2OneCallChannel}, {@link jcsp.lang.Any2OneCallChannel},
+        {@link jcsp.lang.One2AnyCallChannel} and {@link jcsp.lang.Any2AnyCallChannel}.
+        Precise rules for making this extension are given in their documentation.
 
-<H3>Symmetric Channels</H3>
+    <H3>Symmetric Channels</H3>
 Thanks to <i>alting barriers</i> ({@link jcsp.lang.AltingBarrier}),
 <i>symmetric</i> channels are now available:
 {@link jcsp.lang.One2OneChannelSymmetric} and {@link  jcsp.lang.One2OneChannelSymmetricInt}.

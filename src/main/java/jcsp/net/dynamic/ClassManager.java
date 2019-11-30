@@ -37,7 +37,7 @@ import jcsp.net.*;
  *
  *
  * @author Quickstone Technologies Limited
- */
+ * @author JonKerridge to modify for java9  */
 class ClassManager implements CSProcess
 {
    /**
@@ -289,8 +289,9 @@ class ClassManager implements CSProcess
     * A local reference to the system class loader. This is held as an attribute so that it would be
     * possible to change the class loader that this process tries by default when resolving classes.
     */
-   private ClassLoader systemClassLoader = ClassLoader.getSystemClassLoader();
-   
+//   private ClassLoader systemClassLoader = ClassLoader.getSystemClassLoader(); //Java 8 version
+   private ClassLoader systemClassLoader = ClassLoader.getPlatformClassLoader(); //Java 9+ version
+
    /**
     * Maps <code>RegisteredClass</code> objects to <code>byte[]</code> binary images.
     */
