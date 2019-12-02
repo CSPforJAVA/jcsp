@@ -3,6 +3,8 @@ This library contains the specification for the JCSP core API.
 Please read the LICENCE as further use of the library implies acceptance of either of the licences (Apache 2.0 or
 GNU LPGL 2.1).
 
+This version is known to work with Java versions 6 upwards including Java 9+.
+
 **Overview**
 
 JCSP provides a complete library for building complex functionality through layered networks of 
