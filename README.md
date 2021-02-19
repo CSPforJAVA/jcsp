@@ -6,23 +6,22 @@ GNU LPGL 2.1).
 This version is known to work with Java versions 6 upwards including Java 9+.
 
 **Version History**
-1.1.0
-Version 1.1.0 does not have a formal release on GitHub as the build was intended for publication 
+
+1.1.0 does not have a formal release on GitHub as the build was intended for publication 
 on jcenter() using bintray.  When Bintray was made unavailable (May 2021) it was decided to move
 the library to another repository and JitPack was chosen.  Version 1.1.0 was still available
 until Bintray was removed.
 
-1.1.1
-Version 1.1.1 is the version that was created for JitPack.  The only change was to the build.gradle file.
+1.1.2 is the version that was created for JitPack.  The only change was to the build.gradle file.
 The coding of the JCSP library was not changed.  The code for the JCSPdemos was changed only to modify the 
 build file to refer also to JitPack.  This version does have a formal release on 
 https://github.com/CSPforJAVA/jcsp so that Jitpack can refer to it.
-Version 1.1.1 was created using Java 11 and Groovy 3.0.7.  
+Version 1.1.2 was created using Java 8.  
 The build.gradle file creates source and javadoc jars and also published to a MavenLocal repository.
 
 repository { maven { url 'https://jitpack.io' } }
 
-dependencies { implementation 'com.github.CSPforJAVA:jcsp:1.1.1'}
+dependencies { implementation 'com.github.CSPforJAVA:jcsp:1.1.2'}
 
 To enable automatic dowmload of archive jars (javadoc and sources) in IntelliJ use
 idea {
