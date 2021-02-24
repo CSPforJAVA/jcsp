@@ -5,10 +5,9 @@ plugins {
 }
 
 group 'cspforjava'
-version '1.1.2'
+version '1.1.8'
 // 1.1.0 was available from jcentre() repository
-// version 1.1.1 available from JitPack and was intended to be Java11 but failed
-//version 1.1.2 Java8 and JitPack
+//version 1.1.8 Java8 available as a GitHub release
 
 repositories {
     mavenCentral()
@@ -34,7 +33,7 @@ artifacts {
 
 publishing {
     publications {
-        myPublication(MavenPublication) {
+        jcspPUB(MavenPublication) {
             from components.java
             artifact sourcesJar
             artifact javadocJar
