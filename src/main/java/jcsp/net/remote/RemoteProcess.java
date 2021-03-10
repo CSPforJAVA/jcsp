@@ -84,7 +84,7 @@ import jcsp.net.*;
  *
  *     public void run () {
  *       CSProcess workers[] = new CSProcess[numWorkers];
- *       for (int i=0; i < numWorkers; i++) {
+ *       for (int i=0; i <  numWorkers; i++) {
  *         workers[i] = new Worker (farmer, harvester);
  *       }
  *       new Parallel (workers).run ();
