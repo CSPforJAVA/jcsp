@@ -84,7 +84,7 @@ import jcsp.net.*;
  *
  *     public void run () {
  *       CSProcess workers[] = new CSProcess[numWorkers];
- *       for (int i = 0; i < numWorkers; i++) {
+ *       for (int i=0; i <  numWorkers; i++) {
  *         workers[i] = new Worker (farmer, harvester);
  *       }
  *       new Parallel (workers).run ();
@@ -174,7 +174,7 @@ public class RemoteProcess implements CSProcess
     *
     * @param process the process to launch remotely.
     * @param remoteNode the node to launch the process on.
-    * @param nodeFactory the factory to use for initializing the remote node.
+    * @param factory the factory to use for initializing the remote node.
     */
    public RemoteProcess(CSProcess process, NodeAddressID remoteNode, NodeFactory factory)
    {
@@ -278,7 +278,7 @@ public class RemoteProcess implements CSProcess
       }
    }
    
-   /** Returns false iff the last run generated one or more exceptions. */
+   /** @return false iff the last run generated one or more exceptions. */
    public boolean lastRunStatus()
    {
       return statusOfLastRun;
