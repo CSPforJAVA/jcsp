@@ -113,7 +113,7 @@ dependencies {
 The src folder contains both main and test folders in the format used by Gradle.
 To install to your local Maven repo, use
 
-gradle clean install
+gradle clean publishToMavenLocal
 
 **References**
 
