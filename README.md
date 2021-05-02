@@ -36,7 +36,7 @@ repositories {
 }
 
 dependencies {
-  compile 'cspforjava:jcsp:1.1.9'
+  compile 'cspforjava:jcsp:1.2.0'
 }
 </pre>
 
