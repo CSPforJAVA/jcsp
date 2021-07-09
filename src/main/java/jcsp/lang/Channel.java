@@ -107,9 +107,9 @@ public class Channel
      *
      * @return the channel.
      */
-    public static One2OneChannel one2one()
+    public static <T> One2OneChannel<T> one2one()
     {
-    	return new One2OneChannelImpl();
+    	return new One2OneChannelImpl<T>();
     }
     
     /**
@@ -123,9 +123,9 @@ public class Channel
      *
      * @return the channel.
      */
-    public static One2AnyChannel one2any()
+    public static <T> One2AnyChannel<T> one2any()
     {
-    	return new One2AnyChannelImpl();
+    	return new One2AnyChannelImpl<T>();
     }
     
     /**
@@ -139,9 +139,9 @@ public class Channel
      *
      * @return the channel.
      */
-    public static Any2OneChannel any2one()
+    public static <T> Any2OneChannel<T> any2one()
     {
-    	return new Any2OneChannelImpl();
+    	return new Any2OneChannelImpl<T>();
     }
     
     /**
@@ -156,9 +156,9 @@ public class Channel
      *
      * @return the channel.
      */
-    public static Any2AnyChannel any2any()
+    public static <T> Any2AnyChannel<T> any2any()
     {
-    	return new Any2AnyChannelImpl();
+    	return new Any2AnyChannelImpl<T>();
     }
 
     /**
@@ -167,9 +167,9 @@ public class Channel
      * @param buffer defines size and policy (the channel will clone its own).
      * @return the channel.
      */
-    public static One2OneChannel one2one(ChannelDataStore buffer)
+    public static <T> One2OneChannel<T> one2one(ChannelDataStore<T> buffer)
     {
-    	return new BufferedOne2OneChannel(buffer);
+    	return new BufferedOne2OneChannel<T>(buffer);
     }
     
     /**
@@ -178,9 +178,9 @@ public class Channel
      * @param buffer defines size and policy (the channel will clone its own).
      * @return the channel.
      */
-    public static One2AnyChannel one2any(ChannelDataStore buffer)
+    public static <T> One2AnyChannel<T> one2any(ChannelDataStore<T> buffer)
     {
-    	return new BufferedOne2AnyChannel(buffer);
+    	return new BufferedOne2AnyChannel<T>(buffer);
     }
     
     /**
@@ -189,9 +189,9 @@ public class Channel
      * @param buffer defines size and policy (the channel will clone its own).
      * @return the channel.
      */
-    public static Any2OneChannel any2one(ChannelDataStore buffer)
+    public static <T> Any2OneChannel<T> any2one(ChannelDataStore<T> buffer)
     {
-    	return new BufferedAny2OneChannel(buffer);
+    	return new BufferedAny2OneChannel<T>(buffer);
     }
     
     /**
@@ -200,9 +200,9 @@ public class Channel
      * @param buffer defines size and policy (the channel will clone its own).
      * @return the channel.
      */
-    public static Any2AnyChannel any2any(ChannelDataStore buffer)
+    public static <T> Any2AnyChannel<T> any2any(ChannelDataStore<T> buffer)
     {
-    	return new BufferedAny2AnyChannel(buffer);
+    	return new BufferedAny2AnyChannel<T>(buffer);
     }
     
     /**
@@ -211,9 +211,9 @@ public class Channel
      * @param immunity the channel is immune to poison strengths up to and including this level.
      * @return the channel.
      */
-    public static One2OneChannel one2one(int immunity)
+    public static <T> One2OneChannel<T> one2one(int immunity)
     {
-    	return new PoisonableOne2OneChannelImpl(immunity);
+    	return new PoisonableOne2OneChannelImpl<T>(immunity);
     }
 
     /**
@@ -222,9 +222,9 @@ public class Channel
      * @param immunity the channel is immune to poison strengths up to and including this level.
      * @return the channel.
      */
-    public static One2AnyChannel one2any(int immunity)
+    public static <T> One2AnyChannel<T> one2any(int immunity)
     {
-    	return new PoisonableOne2AnyChannelImpl(immunity);
+    	return new PoisonableOne2AnyChannelImpl<T>(immunity);
     }
     
     /**
@@ -233,9 +233,9 @@ public class Channel
      * @param immunity the channel is immune to poison strengths up to and including this level.
      * @return the channel.
      */
-    public static Any2OneChannel any2one(int immunity)
+    public static <T> Any2OneChannel<T> any2one(int immunity)
     {
-    	return new PoisonableAny2OneChannelImpl(immunity);
+    	return new PoisonableAny2OneChannelImpl<T>(immunity);
     }
     
     /**
@@ -244,9 +244,9 @@ public class Channel
      * @param immunity the channel is immune to poison strengths up to and including this level.
      * @return the channel.
      */
-    public static Any2AnyChannel any2any(int immunity)
+    public static <T> Any2AnyChannel<T> any2any(int immunity)
     {
-    	return new PoisonableAny2AnyChannelImpl(immunity);
+    	return new PoisonableAny2AnyChannelImpl<T>(immunity);
     }
     
     /**
@@ -256,9 +256,9 @@ public class Channel
      * @param immunity the channel is immune to poison strengths up to and including this level.
      * @return the channel.
      */
-    public static One2OneChannel one2one(ChannelDataStore buffer, int immunity)
+    public static <T> One2OneChannel<T> one2one(ChannelDataStore<T> buffer, int immunity)
     {
-    	return new PoisonableBufferedOne2OneChannel(buffer, immunity);
+    	return new PoisonableBufferedOne2OneChannel<T>(buffer, immunity);
     }
     
     /**
@@ -268,9 +268,9 @@ public class Channel
      * @param immunity the channel is immune to poison strengths up to and including this level.
      * @return the channel.
      */
-    public static One2AnyChannel one2any(ChannelDataStore buffer, int immunity)
+    public static <T> One2AnyChannel<T> one2any(ChannelDataStore<T> buffer, int immunity)
     {
-    	return new PoisonableBufferedOne2AnyChannel(buffer, immunity);
+    	return new PoisonableBufferedOne2AnyChannel<T>(buffer, immunity);
     }
     
     /**
@@ -280,9 +280,9 @@ public class Channel
      * @param immunity the channel is immune to poison strengths up to and including this level.
      * @return the channel.
      */
-    public static Any2OneChannel any2one(ChannelDataStore buffer, int immunity)
+    public static <T> Any2OneChannel<T> any2one(ChannelDataStore<T> buffer, int immunity)
     {
-    	return new PoisonableBufferedAny2OneChannel(buffer, immunity);
+    	return new PoisonableBufferedAny2OneChannel<T>(buffer, immunity);
     }
     
     /**
@@ -292,9 +292,9 @@ public class Channel
      * @param immunity the channel is immune to poison strengths up to and including this level.
      * @return the channel.
      */
-    public static Any2AnyChannel any2any(ChannelDataStore buffer, int immunity)
+    public static <T> Any2AnyChannel<T> any2any(ChannelDataStore<T> buffer, int immunity)
     {
-    	return new PoisonableBufferedAny2AnyChannel(buffer, immunity);
+    	return new PoisonableBufferedAny2AnyChannel<T>(buffer, immunity);
     }
     
     /**
@@ -303,9 +303,9 @@ public class Channel
      * @param size defines size of the array (must be positive).
      * @return the channel array.
      */
-    public static One2OneChannel[] one2oneArray(int size)
+    public static <T> One2OneChannel<T>[] one2oneArray(int size)
     {
-    	One2OneChannel[] r = new One2OneChannel[size];
+    	One2OneChannel<T>[] r = (One2OneChannel<T>[]) new One2OneChannel[size];
     	for (int i = 0;i < size;i++)
     	{
     		r[i] = one2one();    	
@@ -319,9 +319,9 @@ public class Channel
      * @param size defines size of the array (must be positive).
      * @return the channel array.
      */
-    public static One2AnyChannel[] one2anyArray(int size)
+    public static <T> One2AnyChannel<T>[] one2anyArray(int size)
     {
-    	One2AnyChannel[] r = new One2AnyChannel[size];
+    	One2AnyChannel<T>[] r = (One2AnyChannel<T>[]) new One2AnyChannel[size];
     	for (int i = 0;i < size;i++)
     	{
     		r[i] = one2any();    	
@@ -335,9 +335,9 @@ public class Channel
      * @param size defines size of the array (must be positive).
      * @return the channel array.
      */
-    public static Any2OneChannel[] any2oneArray(int size)
+    public static <T> Any2OneChannel<T>[] any2oneArray(int size)
     {
-    	Any2OneChannel[] r = new Any2OneChannel[size];
+    	Any2OneChannel<T>[] r = (Any2OneChannel<T>[]) new Any2OneChannel[size];
     	for (int i = 0;i < size;i++)
     	{
     		r[i] = any2one();    	
@@ -351,9 +351,9 @@ public class Channel
      * @param size defines size of the array (must be positive).
      * @return the channel array.
      */
-    public static Any2AnyChannel[] any2anyArray(int size)
+    public static <T> Any2AnyChannel<T>[] any2anyArray(int size)
     {
-    	Any2AnyChannel[] r = new Any2AnyChannel[size];
+    	Any2AnyChannel<T>[] r = (Any2AnyChannel<T>[]) new Any2AnyChannel[size];
     	for (int i = 0;i < size;i++)
     	{
     		r[i] = any2any();
@@ -368,9 +368,9 @@ public class Channel
      * @param immunity the channels are immune to poison strengths up to and including this level.
      * @return the channel array.
      */
-    public static One2OneChannel[] one2oneArray(int size, int immunity)
+    public static <T> One2OneChannel<T>[] one2oneArray(int size, int immunity)
     {
-    	One2OneChannel[] r = new One2OneChannel[size];
+    	One2OneChannel<T>[] r = (One2OneChannel<T>[]) new One2OneChannel[size];
     	for (int i = 0;i < size;i++)
     	{
     		r[i] = one2one(immunity);    	
@@ -385,9 +385,9 @@ public class Channel
      * @param immunity the channels are immune to poison strengths up to and including this level.
      * @return the channel array.
      */
-    public static One2AnyChannel[] one2anyArray(int size, int immunity)
+    public static <T> One2AnyChannel<T>[] one2anyArray(int size, int immunity)
     {
-    	One2AnyChannel[] r = new One2AnyChannel[size];
+    	One2AnyChannel<T>[] r = (One2AnyChannel<T>[]) new One2AnyChannel[size];
     	for (int i = 0;i < size;i++)
     	{
     		r[i] = one2any(immunity);    	
@@ -402,9 +402,9 @@ public class Channel
      * @param immunity the channels are immune to poison strengths up to and including this level.
      * @return the channel array.
      */
-    public static Any2OneChannel[] any2oneArray(int size, int immunity)
+    public static <T> Any2OneChannel<T>[] any2oneArray(int size, int immunity)
     {
-    	Any2OneChannel[] r = new Any2OneChannel[size];
+    	Any2OneChannel<T>[] r = (Any2OneChannel<T>[]) new Any2OneChannel[size];
     	for (int i = 0;i < size;i++)
     	{
     		r[i] = any2one(immunity);    	
@@ -419,9 +419,9 @@ public class Channel
      * @param immunity the channels are immune to poison strengths up to and including this level.
      * @return the channel array.
      */
-    public static Any2AnyChannel[] any2anyArray(int size, int immunity)
+    public static <T> Any2AnyChannel<T>[] any2anyArray(int size, int immunity)
     {
-    	Any2AnyChannel[] r = new Any2AnyChannel[size];
+    	Any2AnyChannel<T>[] r = (Any2AnyChannel<T>[]) new Any2AnyChannel[size];
     	for (int i = 0;i < size;i++)
     	{
     		r[i] = any2any(immunity);
@@ -436,9 +436,9 @@ public class Channel
      * @param buffer defines size and policy (the channel will clone its own).
      * @return the channel array.
      */
-    public static One2OneChannel[] one2oneArray(int size, ChannelDataStore buffer)
+    public static <T> One2OneChannel<T>[] one2oneArray(int size, ChannelDataStore<T> buffer)
     {
-    	One2OneChannel[] r = new One2OneChannel[size];
+    	One2OneChannel<T>[] r = (One2OneChannel<T>[]) new One2OneChannel[size];
     	for (int i = 0;i < size;i++)
     	{
     		r[i] = one2one(buffer);    	
@@ -453,9 +453,9 @@ public class Channel
      * @param buffer defines size and policy (the channel will clone its own).
      * @return the channel array.
      */
-    public static One2AnyChannel[] one2anyArray(int size, ChannelDataStore buffer)
+    public static <T> One2AnyChannel<T>[] one2anyArray(int size, ChannelDataStore<T> buffer)
     {
-    	One2AnyChannel[] r = new One2AnyChannel[size];
+    	One2AnyChannel<T>[] r = (One2AnyChannel<T>[]) new One2AnyChannel[size];
     	for (int i = 0;i < size;i++)
     	{
     		r[i] = one2any(buffer);    	
@@ -470,9 +470,9 @@ public class Channel
      * @param buffer defines size and policy (the channel will clone its own).
      * @return the channel array.
      */
-    public static Any2OneChannel[] any2oneArray(int size, ChannelDataStore buffer)
+    public static <T> Any2OneChannel<T>[] any2oneArray(int size, ChannelDataStore<T> buffer)
     {
-    	Any2OneChannel[] r = new Any2OneChannel[size];
+    	Any2OneChannel<T>[] r = (Any2OneChannel<T>[]) new Any2OneChannel[size];
     	for (int i = 0;i < size;i++)
     	{
     		r[i] = any2one(buffer);    	
@@ -487,9 +487,9 @@ public class Channel
      * @param buffer defines size and policy (the channel will clone its own).
      * @return the channel array.
      */
-    public static Any2AnyChannel[] any2anyArray(int size, ChannelDataStore buffer)
+    public static <T> Any2AnyChannel<T>[] any2anyArray(int size, ChannelDataStore<T> buffer)
     {
-    	Any2AnyChannel[] r = new Any2AnyChannel[size];
+    	Any2AnyChannel<T>[] r = (Any2AnyChannel<T>[]) new Any2AnyChannel[size];
     	for (int i = 0;i < size;i++)
     	{
     		r[i] = any2any(buffer);
@@ -505,9 +505,9 @@ public class Channel
      * @param immunity the channels are immune to poison strengths up to and including this level.
      * @return the channel array.
      */
-    public static One2OneChannel[] one2oneArray(int size, ChannelDataStore buffer, int immunity)
+    public static <T> One2OneChannel<T>[] one2oneArray(int size, ChannelDataStore<T> buffer, int immunity)
     {
-    	One2OneChannel[] r = new One2OneChannel[size];
+    	One2OneChannel<T>[] r = (One2OneChannel<T>[]) new One2OneChannel[size];
     	for (int i = 0;i < size;i++)
     	{
     		r[i] = one2one(buffer,immunity);    	
@@ -523,9 +523,9 @@ public class Channel
      * @param immunity the channels are immune to poison strengths up to and including this level.
      * @return the channel array.
      */
-    public static One2AnyChannel[] one2anyArray(int size, ChannelDataStore buffer, int immunity)
+    public static <T> One2AnyChannel<T>[] one2anyArray(int size, ChannelDataStore<T> buffer, int immunity)
     {
-    	One2AnyChannel[] r = new One2AnyChannel[size];
+    	One2AnyChannel<T>[] r = (One2AnyChannel<T>[]) new One2AnyChannel[size];
     	for (int i = 0;i < size;i++)
     	{
     		r[i] = one2any(buffer,immunity);    	
@@ -541,9 +541,9 @@ public class Channel
      * @param immunity the channels are immune to poison strengths up to and including this level.
      * @return the channel array.
      */
-    public static Any2OneChannel[] any2oneArray(int size, ChannelDataStore buffer, int immunity)
+    public static <T> Any2OneChannel<T>[] any2oneArray(int size, ChannelDataStore<T> buffer, int immunity)
     {
-    	Any2OneChannel[] r = new Any2OneChannel[size];
+    	Any2OneChannel<T>[] r = (Any2OneChannel<T>[]) new Any2OneChannel[size];
     	for (int i = 0;i < size;i++)
     	{
     		r[i] = any2one(buffer,immunity);    	
@@ -559,9 +559,9 @@ public class Channel
      * @param immunity the channels are immune to poison strengths up to and including this level.
      * @return the channel array.
      */
-    public static Any2AnyChannel[] any2anyArray(int size, ChannelDataStore buffer, int immunity)
+    public static <T> Any2AnyChannel<T>[] any2anyArray(int size, ChannelDataStore<T> buffer, int immunity)
     {
-    	Any2AnyChannel[] r = new Any2AnyChannel[size];
+    	Any2AnyChannel<T>[] r = (Any2AnyChannel<T>[]) new Any2AnyChannel[size];
     	for (int i = 0;i < size;i++)
     	{
     		r[i] = any2any(buffer,immunity);
@@ -579,9 +579,9 @@ public class Channel
      *
      * @return the channel.
      */
-    public static One2OneChannelSymmetric one2oneSymmetric ()
+    public static <T> One2OneChannelSymmetric<T> one2oneSymmetric ()
     {
-        return new BasicOne2OneChannelSymmetric ();
+        return new BasicOne2OneChannelSymmetric<T> ();
     }
     
     /**
@@ -590,9 +590,9 @@ public class Channel
      * @param size defines size of the array (must be positive).
      * @return the channel array.
      */
-    public static One2OneChannelSymmetric[] one2oneSymmetricArray(int size)
+    public static <T> One2OneChannelSymmetric<T>[] one2oneSymmetricArray(int size)
     {
-    	One2OneChannelSymmetric[] r = new One2OneChannelSymmetric[size];
+    	One2OneChannelSymmetric<T>[] r = (One2OneChannelSymmetric<T>[]) new One2OneChannelSymmetric[size];
     	for (int i = 0;i < size;i++)
     	{
     		r[i] = one2oneSymmetric();    	
@@ -1110,9 +1110,9 @@ public class Channel
      * @param c an array of channels.
      * @return the array of <i>input-ends</i> from the given channel array.
      */
-    public static AltingChannelInput[] getInputArray(One2OneChannel[] c)
+    public static <T> AltingChannelInput<T>[] getInputArray(One2OneChannel<T>[] c)
     {
-        AltingChannelInput[] in = new AltingChannelInput[c.length];
+        AltingChannelInput<T>[] in = (AltingChannelInput<T>[]) new AltingChannelInput[c.length];
         for (int i = 0; i < c.length; i++)
            in[i] = c[i].in();
         return in;
@@ -1126,9 +1126,9 @@ public class Channel
      * @param c an array of channels.
      * @return the array of <i>input-ends</i> from the given channel array.
      */
-    public static SharedChannelInput[] getInputArray(One2AnyChannel[] c)
+    public static <T> SharedChannelInput<T>[] getInputArray(One2AnyChannel<T>[] c)
     {
-        SharedChannelInput[] in = new SharedChannelInput[c.length];
+        SharedChannelInput<T>[] in = (SharedChannelInput<T>[]) new SharedChannelInput[c.length];
         for (int i = 0; i < c.length; i++)
             in[i] = c[i].in();
         return in;
@@ -1142,9 +1142,9 @@ public class Channel
      * @param c an array of channels.
      * @return the array of <i>input-ends</i> from the given channel array.
      */
-    public static AltingChannelInput[] getInputArray(Any2OneChannel[] c)
+    public static <T> AltingChannelInput<T>[] getInputArray(Any2OneChannel<T>[] c)
     {
-        AltingChannelInput[] in = new AltingChannelInput[c.length];
+        AltingChannelInput<T>[] in = (AltingChannelInput<T>[]) new AltingChannelInput[c.length];
         for (int i = 0; i < c.length; i++)
             in[i] = c[i].in();
         return in;
@@ -1158,9 +1158,9 @@ public class Channel
      * @param c an array of channels.
      * @return the array of <i>input-ends</i> from the given channel array.
      */
-    public static SharedChannelInput[] getInputArray(Any2AnyChannel[] c)
+    public static <T> SharedChannelInput<T>[] getInputArray(Any2AnyChannel<T>[] c)
     {
-        SharedChannelInput[] in = new SharedChannelInput[c.length];
+        SharedChannelInput<T>[] in = (SharedChannelInput<T>[]) new SharedChannelInput[c.length];
         for (int i = 0; i < c.length; i++)
             in[i] = c[i].in();
         return in;
@@ -1174,9 +1174,9 @@ public class Channel
      * @param c an array of channels.
      * @return the array of <i>output-ends</i> from the given channel array.
      */
-    public static ChannelOutput[] getOutputArray(One2OneChannel[] c)
+    public static <T> ChannelOutput<T>[] getOutputArray(One2OneChannel<T>[] c)
     {
-        ChannelOutput[] in = new ChannelOutput[c.length];
+        ChannelOutput<T>[] in = (ChannelOutput<T>[]) new ChannelOutput[c.length];
         for (int i = 0; i < c.length; i++)
             in[i] = c[i].out();
         return in;
@@ -1190,9 +1190,9 @@ public class Channel
      * @param c an array of channels.
      * @return the array of <i>output-ends</i> from the given channel array.
      */
-    public static ChannelOutput[] getOutputArray(One2AnyChannel[] c)
+    public static <T> ChannelOutput<T>[] getOutputArray(One2AnyChannel<T>[] c)
     {
-        ChannelOutput[] in = new ChannelOutput[c.length];
+        ChannelOutput<T>[] in = (ChannelOutput<T>[]) new ChannelOutput[c.length];
         for (int i = 0; i < c.length; i++)
             in[i] = c[i].out();
         return in;
@@ -1206,9 +1206,9 @@ public class Channel
      * @param c an array of channels.
      * @return the array of <i>output-ends</i> from the given channel array.
      */
-    public static SharedChannelOutput[] getOutputArray(Any2OneChannel[] c)
+    public static <T> SharedChannelOutput<T>[] getOutputArray(Any2OneChannel<T>[] c)
     {
-        SharedChannelOutput[] in = new SharedChannelOutput[c.length];
+        SharedChannelOutput<T>[] in = (SharedChannelOutput<T>[]) new SharedChannelOutput[c.length];
         for (int i = 0; i < c.length; i++)
             in[i] = c[i].out();
         return in;
@@ -1222,9 +1222,9 @@ public class Channel
      * @param c an array of channels.
      * @return the array of <i>output-ends</i> from the given channel array.
      */
-    public static SharedChannelOutput[] getOutputArray(Any2AnyChannel[] c)
+    public static <T> SharedChannelOutput<T>[] getOutputArray(Any2AnyChannel<T>[] c)
     {
-        SharedChannelOutput[] in = new SharedChannelOutput[c.length];
+        SharedChannelOutput<T>[] in = (SharedChannelOutput<T>[]) new SharedChannelOutput[c.length];
         for (int i = 0; i < c.length; i++)
             in[i] = c[i].out();
         return in;

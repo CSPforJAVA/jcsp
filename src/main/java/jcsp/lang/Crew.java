@@ -408,7 +408,7 @@ package jcsp.lang;
 public class Crew
 {
     private final Any2OneChannelIntImpl request = new Any2OneChannelIntImpl();
-    private final One2OneChannelIntImpl writerControl = new One2OneChannelIntImpl();
+    private final Any2OneChannelIntImpl writerControl = new Any2OneChannelIntImpl();
     private final Any2OneChannelIntImpl readerRelease = new Any2OneChannelIntImpl();
     
     ///TODO make this poison the existing channels, once poison is added

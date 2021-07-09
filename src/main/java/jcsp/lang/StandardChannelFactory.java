@@ -38,8 +38,8 @@ import jcsp.util.ChannelDataStore;
  *
  * @author Quickstone Technologies Limited
  */
-public class StandardChannelFactory
-        implements ChannelFactory, ChannelArrayFactory, BufferedChannelFactory, BufferedChannelArrayFactory
+public class StandardChannelFactory<T>
+        implements ChannelFactory<T>, ChannelArrayFactory<T>, BufferedChannelFactory<T>, BufferedChannelArrayFactory<T>
 {
     private static StandardChannelFactory defaultInstance = new StandardChannelFactory();
 
@@ -66,9 +66,9 @@ public class StandardChannelFactory
      *
      * @see ChannelFactory#createOne2One()
      */
-    public One2OneChannel createOne2One()
+    public One2OneChannel<T> createOne2One()
     {
-        return new One2OneChannelImpl();
+        return new One2OneChannelImpl<T>();
     }
 
     /**
@@ -78,9 +78,9 @@ public class StandardChannelFactory
      *
      * @see ChannelFactory#createAny2One()
      */
-    public Any2OneChannel createAny2One()
+    public Any2OneChannel<T> createAny2One()
     {
-        return new Any2OneChannelImpl();
+        return new Any2OneChannelImpl<T>();
     }
 
     /**
@@ -90,9 +90,9 @@ public class StandardChannelFactory
      *
      * @see ChannelFactory#createOne2Any()
      */
-    public One2AnyChannel createOne2Any()
+    public One2AnyChannel<T> createOne2Any()
     {
-        return new One2AnyChannelImpl();
+        return new One2AnyChannelImpl<T>();
     }
 
     /**
@@ -102,9 +102,9 @@ public class StandardChannelFactory
      *
      * @see ChannelFactory#createAny2Any()
      */
-    public Any2AnyChannel createAny2Any()
+    public Any2AnyChannel<T> createAny2Any()
     {
-        return new Any2AnyChannelImpl();
+        return new Any2AnyChannelImpl<T>();
     }
 
     /**
@@ -116,9 +116,9 @@ public class StandardChannelFactory
      *
      * @see ChannelArrayFactory#createOne2One(int)
      */
-    public One2OneChannel[] createOne2One(int n)
+    public One2OneChannel<T>[] createOne2One(int n)
     {
-        One2OneChannel[] toReturn = new One2OneChannel[n];
+        One2OneChannel<T>[] toReturn = new One2OneChannel[n];
         for (int i = 0; i < n; i++)
             toReturn[i] = createOne2One();
         return toReturn;
@@ -133,9 +133,9 @@ public class StandardChannelFactory
      *
      * @see ChannelArrayFactory#createAny2One(int)
      */
-    public Any2OneChannel[] createAny2One(int n)
+    public Any2OneChannel<T>[] createAny2One(int n)
     {
-        Any2OneChannel[] toReturn = new Any2OneChannel[n];
+        Any2OneChannel<T>[] toReturn = new Any2OneChannel[n];
         for (int i = 0; i < n; i++)
             toReturn[i] = createAny2One();
         return toReturn;
@@ -150,9 +150,9 @@ public class StandardChannelFactory
      *
      * @see ChannelArrayFactory#createOne2Any(int)
      */
-    public One2AnyChannel[] createOne2Any(int n)
+    public One2AnyChannel<T>[] createOne2Any(int n)
     {
-        One2AnyChannel[] toReturn = new One2AnyChannel[n];
+        One2AnyChannel<T>[] toReturn = (One2AnyChannel<T>[]) new One2AnyChannel[n];
         for (int i = 0; i < n; i++)
             toReturn[i] = createOne2Any();
         return toReturn;
@@ -169,7 +169,7 @@ public class StandardChannelFactory
      */
     public Any2AnyChannel[] createAny2Any(int n)
     {
-        Any2AnyChannel[] toReturn = new Any2AnyChannel[n];
+        Any2AnyChannel<T>[] toReturn = (Any2AnyChannel<T>[]) new Any2AnyChannel[n];
         for (int i = 0; i < n; i++)
             toReturn[i] = createAny2Any();
         return toReturn;
@@ -189,9 +189,9 @@ public class StandardChannelFactory
      * @see BufferedChannelFactory#createOne2One(ChannelDataStore)
      * @see ChannelDataStore
      */
-    public One2OneChannel createOne2One(ChannelDataStore buffer)
+    public One2OneChannel<T> createOne2One(ChannelDataStore<T> buffer)
     {
-        return new BufferedOne2OneChannel(buffer);
+        return new BufferedOne2OneChannel<T>(buffer);
     }
 
     /**
@@ -208,9 +208,9 @@ public class StandardChannelFactory
      * @see BufferedChannelFactory#createAny2One(ChannelDataStore)
      * @see ChannelDataStore
      */
-    public Any2OneChannel createAny2One(ChannelDataStore buffer)
+    public Any2OneChannel<T> createAny2One(ChannelDataStore<T> buffer)
     {
-        return new BufferedAny2OneChannel(buffer);
+        return new BufferedAny2OneChannel<T>(buffer);
     }
 
     /**
@@ -227,9 +227,9 @@ public class StandardChannelFactory
      * @see BufferedChannelFactory#createOne2Any(ChannelDataStore)
      * @see ChannelDataStore
      */
-    public One2AnyChannel createOne2Any(ChannelDataStore buffer)
+    public One2AnyChannel<T> createOne2Any(ChannelDataStore<T> buffer)
     {
-        return new BufferedOne2AnyChannel(buffer);
+        return new BufferedOne2AnyChannel<T>(buffer);
     }
 
     /**
@@ -246,9 +246,9 @@ public class StandardChannelFactory
      * @see BufferedChannelFactory#createAny2Any(ChannelDataStore)
      * @see ChannelDataStore
      */
-    public Any2AnyChannel createAny2Any(ChannelDataStore buffer)
+    public Any2AnyChannel<T> createAny2Any(ChannelDataStore<T> buffer)
     {
-        return new BufferedAny2AnyChannel(buffer);
+        return new BufferedAny2AnyChannel<T>(buffer);
     }
 
     /**
@@ -267,9 +267,9 @@ public class StandardChannelFactory
      * @see BufferedChannelArrayFactory#createOne2One(ChannelDataStore,int)
      * @see ChannelDataStore
      */
-    public One2OneChannel[] createOne2One(ChannelDataStore buffer, int n)
+    public One2OneChannel<T>[] createOne2One(ChannelDataStore<T> buffer, int n)
     {
-        One2OneChannel[] toReturn = new One2OneChannel[n];
+        One2OneChannel<T>[] toReturn = (One2OneChannel<T>[]) new One2OneChannel[n];
         for (int i = 0; i < n; i++)
             toReturn[i] = createOne2One(buffer);
         return toReturn;
@@ -291,9 +291,9 @@ public class StandardChannelFactory
      * @see BufferedChannelArrayFactory#createAny2One(ChannelDataStore,int)
      * @see ChannelDataStore
      */
-    public Any2OneChannel[] createAny2One(ChannelDataStore buffer, int n)
+    public Any2OneChannel<T>[] createAny2One(ChannelDataStore<T> buffer, int n)
     {
-        Any2OneChannel[] toReturn = new Any2OneChannel[n];
+        Any2OneChannel<T>[] toReturn = (Any2OneChannel<T>[]) new Any2OneChannel[n];
         for (int i = 0; i < n; i++)
             toReturn[i] = createAny2One(buffer);
         return toReturn;
@@ -315,9 +315,9 @@ public class StandardChannelFactory
      * @see BufferedChannelArrayFactory#createOne2Any(ChannelDataStore,int)
      * @see ChannelDataStore
      */
-    public One2AnyChannel[] createOne2Any(ChannelDataStore buffer, int n)
+    public One2AnyChannel<T>[] createOne2Any(ChannelDataStore<T> buffer, int n)
     {
-        One2AnyChannel[] toReturn = new One2AnyChannel[n];
+        One2AnyChannel<T>[] toReturn = (One2AnyChannel<T>[]) new One2AnyChannel[n];
         for (int i = 0; i < n; i++)
             toReturn[i] = createOne2Any(buffer);
         return toReturn;
@@ -339,9 +339,9 @@ public class StandardChannelFactory
      * @see BufferedChannelArrayFactory#createAny2Any(ChannelDataStore,int)
      * @see ChannelDataStore
      */
-    public Any2AnyChannel[] createAny2Any(ChannelDataStore buffer, int n)
+    public Any2AnyChannel<T>[] createAny2Any(ChannelDataStore<T> buffer, int n)
     {
-        Any2AnyChannel[] toReturn = new Any2AnyChannel[n];
+        Any2AnyChannel<T>[] toReturn = (Any2AnyChannel<T>[]) new Any2AnyChannel[n];
         for (int i = 0; i < n; i++)
             toReturn[i] = createAny2Any(buffer);
         return toReturn;

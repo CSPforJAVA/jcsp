@@ -31,12 +31,12 @@ package jcsp.lang;
  *
  * @author Quickstone Technologies Limited
  */
-public abstract class AltingConnectionServer extends Guard implements ConnectionServer
+public abstract class AltingConnectionServer<T> extends Guard implements ConnectionServer<T>
 {
     /**
      * The channel used to ALT over.
      */
-    private AltingChannelInput altingChannel;
+    private AltingChannelInput<ConnectionMessage<T>> altingChannel;
 
     /**
      * Constructor.
@@ -47,7 +47,7 @@ public abstract class AltingConnectionServer extends Guard implements Connection
      *
      * @param altingChannel The channel used to implement the Guard
      */
-    protected AltingConnectionServer(AltingChannelInput altingChannel)
+    protected AltingConnectionServer(AltingChannelInput<ConnectionMessage<T>> altingChannel)
     {
         this.altingChannel = altingChannel;
     }
@@ -64,7 +64,7 @@ public abstract class AltingConnectionServer extends Guard implements Connection
      *
      * @return The channel passed to the constructor.
      */
-    protected AltingChannelInput getAltingChannel()
+    protected AltingChannelInput<ConnectionMessage<T>> getAltingChannel()
     {
         return altingChannel;
     }
@@ -80,7 +80,7 @@ public abstract class AltingConnectionServer extends Guard implements Connection
      *
      * @param	chan	the channel to be ALTed over.
      */
-    protected void setAltingChannel(AltingChannelInput chan)
+    protected void setAltingChannel(AltingChannelInput<ConnectionMessage<T>> chan)
     {
         altingChannel = chan;
     }

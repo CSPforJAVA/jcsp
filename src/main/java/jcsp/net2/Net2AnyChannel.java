@@ -33,8 +33,8 @@ import jcsp.net2.NetworkMessageFilter.FilterRx;
  * @author Kevin Chalmers (updated from Quickstone Technologies)
  * @author Neil Brown (for the extended read operations)
  */
-final class Net2AnyChannel
-    implements NetSharedChannelInput
+final class Net2AnyChannel<T>
+    implements NetSharedChannelInput<T>
 {
 
     /**
@@ -58,13 +58,13 @@ final class Net2AnyChannel
      * @throws JCSPNetworkException
      *             Thrown if there is a problem creating the underlying channel
      */
-    static Net2AnyChannel create(int poisonImmunity, FilterRx filter)
+    static <T2> Net2AnyChannel<T2> create(int poisonImmunity, FilterRx filter)
         throws JCSPNetworkException
     {
         // Create the underlying channel
         Net2OneChannel chan = Net2OneChannel.create(poisonImmunity, filter);
         // Return a new instance of this object
-        return new Net2AnyChannel(chan);
+        return new Net2AnyChannel<T2>(chan);
     }
 
     /**
@@ -82,13 +82,13 @@ final class Net2AnyChannel
      * @throws JCSPNetworkException
      *             Thrown if something goes wrong during the creation of the underlying channel
      */
-    static Net2AnyChannel create(int index, int poisonImmunity, FilterRx filter)
+    static <T2> Net2AnyChannel<T2> create(int index, int poisonImmunity, FilterRx filter)
         throws IllegalArgumentException, JCSPNetworkException
     {
         // Create the underlying channel
         Net2OneChannel chan = Net2OneChannel.create(index, poisonImmunity, filter);
         // Return a new instance of Net2AnyChannel
-        return new Net2AnyChannel(chan);
+        return new Net2AnyChannel<T2>(chan);
     }
 
     /**
@@ -155,7 +155,7 @@ final class Net2AnyChannel
      * @throws NetworkPoisonException
      *             Thrown if the channel has been poisoned
      */
-    public Object read()
+    public T read()
         throws JCSPNetworkException, IllegalStateException, NetworkPoisonException
     {
         // First, we must endure that only one process is trying to perform a read operations
@@ -170,7 +170,7 @@ final class Net2AnyChannel
             try
             {
                 Object toReturn = this.actualChannel.read();
-                return toReturn;
+                return (T) toReturn; // Messy cast. Trust our sender
             }
             catch (JCSPNetworkException jne)
             {
@@ -202,7 +202,7 @@ final class Net2AnyChannel
      * @throws IllegalStateException
      *             Thrown if the channel is in an extended read state
      */
-    public Object startRead()
+    public T startRead()
         throws JCSPNetworkException, NetworkPoisonException, IllegalStateException
     {
         // First ensure we have exclusive read access
@@ -215,7 +215,7 @@ final class Net2AnyChannel
             // case we must re-throw the exception, remembering to release to release the read lock prior to doing so.
             try
             {
-                return this.actualChannel.startRead();
+                return (T) this.actualChannel.startRead(); // Another messy cast
             }
             catch (JCSPNetworkException jne)
             {

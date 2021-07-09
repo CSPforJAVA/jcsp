@@ -105,7 +105,7 @@ public final class NetChannel
      * 
      * @return A new NetAltingChannelInput
      */
-    public static NetAltingChannelInput net2one()
+    public static <T> NetAltingChannelInput<T> net2one()
     {
         return factory.net2one();
     }
@@ -117,7 +117,7 @@ public final class NetChannel
      *            The immunity level for poison
      * @return A new NetAltingChannelInput
      */
-    public static NetAltingChannelInput net2one(int immunityLevel)
+    public static <T> NetAltingChannelInput<T> net2one(int immunityLevel)
     {
         return factory.net2one(immunityLevel);
     }
@@ -129,7 +129,7 @@ public final class NetChannel
      *            The filter used to decode incoming messages
      * @return A new NetAltingChannelInput
      */
-    public static NetAltingChannelInput net2one(NetworkMessageFilter.FilterRx filter)
+    public static <T> NetAltingChannelInput<T> net2one(NetworkMessageFilter.FilterRx filter)
     {
         return factory.net2one(filter);
     }
@@ -144,7 +144,7 @@ public final class NetChannel
      *            The filter used to decode incoming messages
      * @return A new NetAltingChannelInput
      */
-    public static NetAltingChannelInput net2one(int immunityLevel, NetworkMessageFilter.FilterRx filter)
+    public static <T> NetAltingChannelInput<T> net2one(int immunityLevel, NetworkMessageFilter.FilterRx filter)
     {
         return factory.net2one(immunityLevel, filter);
     }
@@ -154,7 +154,7 @@ public final class NetChannel
      * 
      * @return A new NetSharedChannelInput
      */
-    public static NetSharedChannelInput net2any()
+    public static <T> NetSharedChannelInput<T> net2any()
     {
         return factory.net2any();
     }
@@ -166,7 +166,7 @@ public final class NetChannel
      *            The immunity level to poison for this channel
      * @return A new NetSharedChannelInput
      */
-    public static NetSharedChannelInput net2any(int immunityLevel)
+    public static <T> NetSharedChannelInput<T> net2any(int immunityLevel)
     {
         return factory.net2any(immunityLevel);
     }
@@ -178,7 +178,7 @@ public final class NetChannel
      *            The filter used to decode incoming messages
      * @return A new NetSharedChannelInput
      */
-    public static NetSharedChannelInput net2any(NetworkMessageFilter.FilterRx filter)
+    public static <T> NetSharedChannelInput<T> net2any(NetworkMessageFilter.FilterRx filter)
     {
         return factory.net2any(filter);
     }
@@ -193,7 +193,7 @@ public final class NetChannel
      *            The filter used to decode incoming messages
      * @return A new NetSharedChannelInput
      */
-    public static NetSharedChannelInput net2any(int immunityLevel, NetworkMessageFilter.FilterRx filter)
+    public static <T> NetSharedChannelInput<T> net2any(int immunityLevel, NetworkMessageFilter.FilterRx filter)
     {
         return factory.net2any(immunityLevel, filter);
     }
@@ -207,7 +207,7 @@ public final class NetChannel
      * @throws IllegalArgumentException
      *             Thrown if a channel with the given index already exists
      */
-    public static NetAltingChannelInput numberedNet2One(int index)
+    public static <T> NetAltingChannelInput<T> numberedNet2One(int index)
         throws IllegalArgumentException
     {
         return factory.numberedNet2One(index);
@@ -224,7 +224,7 @@ public final class NetChannel
      * @throws IllegalArgumentException
      *             Thrown if a channel with the given index already exists
      */
-    public static NetAltingChannelInput numberedNet2One(int index, int immunityLevel)
+    public static <T> NetAltingChannelInput<T> numberedNet2One(int index, int immunityLevel)
         throws IllegalArgumentException
     {
         return factory.numberedNet2One(index, immunityLevel);
@@ -241,7 +241,7 @@ public final class NetChannel
      * @throws IllegalArgumentException
      *             Thrown if a channel with the given index already exists
      */
-    public static NetAltingChannelInput numberedNet2One(int index, NetworkMessageFilter.FilterRx filter)
+    public static <T> NetAltingChannelInput<T> numberedNet2One(int index, NetworkMessageFilter.FilterRx filter)
         throws IllegalArgumentException
     {
         return factory.numberedNet2One(index, filter);
@@ -261,7 +261,7 @@ public final class NetChannel
      * @throws IllegalArgumentException
      *             Thrown if a channel with the given index already exists
      */
-    public static NetAltingChannelInput numberedNet2One(int index, int immunityLevel,
+    public static <T> NetAltingChannelInput<T> numberedNet2One(int index, int immunityLevel,
             NetworkMessageFilter.FilterRx filter)
         throws IllegalArgumentException
     {
@@ -277,7 +277,7 @@ public final class NetChannel
      * @throws IllegalArgumentException
      *             Thrown if a channel with the given index already exists
      */
-    public static NetSharedChannelInput numberedNet2Any(int index)
+    public static <T> NetSharedChannelInput<T> numberedNet2Any(int index)
         throws IllegalArgumentException
     {
         return factory.numberedNet2Any(index);
@@ -294,7 +294,7 @@ public final class NetChannel
      * @throws IllegalArgumentException
      *             Thrown if a channel with the given index already exists
      */
-    public static NetSharedChannelInput numberedNet2Any(int index, int immunityLevel)
+    public static <T> NetSharedChannelInput<T> numberedNet2Any(int index, int immunityLevel)
         throws IllegalArgumentException
     {
         return factory.numberedNet2Any(index, immunityLevel);
@@ -311,7 +311,7 @@ public final class NetChannel
      * @throws IllegalArgumentException
      *             Thrown if a channel with the given index already exists
      */
-    public static NetSharedChannelInput numberedNet2Any(int index, NetworkMessageFilter.FilterRx filter)
+    public static <T> NetSharedChannelInput<T> numberedNet2Any(int index, NetworkMessageFilter.FilterRx filter)
         throws IllegalArgumentException
     {
         return factory.numberedNet2Any(index, filter);
@@ -331,7 +331,7 @@ public final class NetChannel
      * @throws IllegalArgumentException
      *             Thrown if a channel with the given index already exists.
      */
-    public static NetSharedChannelInput numberedNet2Any(int index, int immunityLevel,
+    public static <T> NetSharedChannelInput<T> numberedNet2Any(int index, int immunityLevel,
             NetworkMessageFilter.FilterRx filter)
         throws IllegalArgumentException
     {
@@ -347,7 +347,7 @@ public final class NetChannel
      * @throws JCSPNetworkException
      *             Thrown if something goes wrong in the underlying architecture
      */
-    public static NetChannelOutput one2net(NetChannelLocation loc)
+    public static <T> NetChannelOutput<T> one2net(NetChannelLocation loc)
         throws JCSPNetworkException
     {
         return factory.one2net(loc);
@@ -365,7 +365,7 @@ public final class NetChannel
      * @throws JCSPNetworkException
      *             Thrown if something goes wrong in the underlying architecture
      */
-    public static NetChannelOutput one2net(NetChannelLocation loc, int immunityLevel)
+    public static <T> NetChannelOutput<T> one2net(NetChannelLocation loc, int immunityLevel)
         throws JCSPNetworkException
     {
         return factory.one2net(loc, immunityLevel);
@@ -383,7 +383,7 @@ public final class NetChannel
      * @throws JCSPNetworkException
      *             Thrown if something goes wrong in the underlying architecture
      */
-    public static NetChannelOutput one2net(NetChannelLocation loc, NetworkMessageFilter.FilterTx filter)
+    public static <T> NetChannelOutput<T> one2net(NetChannelLocation loc, NetworkMessageFilter.FilterTx filter)
         throws JCSPNetworkException
     {
         return factory.one2net(loc, filter);
@@ -403,7 +403,7 @@ public final class NetChannel
      * @throws JCSPNetworkException
      *             Thrown if something goes wrong in the underlying architecture
      */
-    public static NetChannelOutput one2net(NetChannelLocation loc, int immunityLevel,
+    public static <T> NetChannelOutput<T> one2net(NetChannelLocation loc, int immunityLevel,
             NetworkMessageFilter.FilterTx filter)
         throws JCSPNetworkException
     {
@@ -419,7 +419,7 @@ public final class NetChannel
      * @throws JCSPNetworkException
      *             Thrown if something goes wrong in the underlying architecture
      */
-    public static NetSharedChannelOutput any2net(NetChannelLocation loc)
+    public static <T> NetSharedChannelOutput<T> any2net(NetChannelLocation loc)
         throws JCSPNetworkException
     {
         return factory.any2net(loc);
@@ -437,7 +437,7 @@ public final class NetChannel
      * @throws JCSPNetworkException
      *             Thrown if something goes wrong in the underlying architecture
      */
-    public static NetSharedChannelOutput any2net(NetChannelLocation loc, int immunityLevel)
+    public static <T> NetSharedChannelOutput<T> any2net(NetChannelLocation loc, int immunityLevel)
         throws JCSPNetworkException
     {
         return factory.any2net(loc, immunityLevel);
@@ -455,7 +455,7 @@ public final class NetChannel
      * @throws JCSPNetworkException
      *             Thrown if something goes wrong in the underlying architecture
      */
-    public static NetSharedChannelOutput any2net(NetChannelLocation loc, NetworkMessageFilter.FilterTx filter)
+    public static <T> NetSharedChannelOutput<T> any2net(NetChannelLocation loc, NetworkMessageFilter.FilterTx filter)
         throws JCSPNetworkException
     {
         return factory.any2net(loc, filter);
@@ -475,7 +475,7 @@ public final class NetChannel
      * @throws JCSPNetworkException
      *             Thrown if something goes wrong in the underlying architecture
      */
-    public static NetSharedChannelOutput any2net(NetChannelLocation loc, int immunityLevel,
+    public static <T> NetSharedChannelOutput<T> any2net(NetChannelLocation loc, int immunityLevel,
             NetworkMessageFilter.FilterTx filter)
         throws JCSPNetworkException
     {
@@ -493,7 +493,7 @@ public final class NetChannel
      * @throws JCSPNetworkException
      *             Thrown if something goes wrong in the underlying architecture
      */
-    public static NetChannelOutput one2net(NodeID nodeID, int vcn)
+    public static <T> NetChannelOutput<T> one2net(NodeID nodeID, int vcn)
         throws JCSPNetworkException
     {
         return factory.one2net(nodeID, vcn);
@@ -513,7 +513,7 @@ public final class NetChannel
      * @throws JCSPNetworkException
      *             Thrown if something goes wrong in the underlying architecture
      */
-    public static NetChannelOutput one2net(NodeID nodeID, int vcn, int immunityLevel)
+    public static <T> NetChannelOutput<T> one2net(NodeID nodeID, int vcn, int immunityLevel)
         throws JCSPNetworkException
     {
         return factory.one2net(nodeID, vcn, immunityLevel);
@@ -533,7 +533,7 @@ public final class NetChannel
      * @throws JCSPNetworkException
      *             Thrown if something goes wrong with the underlying architecture
      */
-    public static NetChannelOutput one2net(NodeID nodeID, int vcn, NetworkMessageFilter.FilterTx filter)
+    public static <T> NetChannelOutput<T> one2net(NodeID nodeID, int vcn, NetworkMessageFilter.FilterTx filter)
         throws JCSPNetworkException
     {
         return factory.one2net(nodeID, vcn, filter);
@@ -555,7 +555,7 @@ public final class NetChannel
      * @throws JCSPNetworkException
      *             Thrown if something goes wrong with the underlying architecture
      */
-    public static NetChannelOutput one2net(NodeID nodeID, int vcn, int immunityLevel,
+    public static <T> NetChannelOutput<T> one2net(NodeID nodeID, int vcn, int immunityLevel,
                                            NetworkMessageFilter.FilterTx filter)
         throws JCSPNetworkException
     {
@@ -573,7 +573,7 @@ public final class NetChannel
      * @throws JCSPNetworkException
      *             Thrown if something goes wrong in the underlying architecture
      */
-    public static NetSharedChannelOutput any2net(NodeID nodeID, int vcn)
+    public static <T> NetSharedChannelOutput<T> any2net(NodeID nodeID, int vcn)
         throws JCSPNetworkException
     {
         return factory.any2net(nodeID, vcn);
@@ -593,7 +593,7 @@ public final class NetChannel
      * @throws JCSPNetworkException
      *             Thrown if something goes wrong in the underlying architecture
      */
-    public static NetSharedChannelOutput any2net(NodeID nodeID, int vcn, int immunityLevel)
+    public static <T> NetSharedChannelOutput<T> any2net(NodeID nodeID, int vcn, int immunityLevel)
         throws JCSPNetworkException
     {
         return factory.any2net(nodeID, vcn, immunityLevel);
@@ -613,7 +613,7 @@ public final class NetChannel
      * @throws JCSPNetworkException
      *             Thrown if something goes wrong in the underlying architecture
      */
-    public static NetSharedChannelOutput any2net(NodeID nodeID, int vcn, NetworkMessageFilter.FilterTx filter)
+    public static <T> NetSharedChannelOutput<T> any2net(NodeID nodeID, int vcn, NetworkMessageFilter.FilterTx filter)
         throws JCSPNetworkException
     {
         return factory.any2net(nodeID, vcn, filter);
@@ -635,7 +635,7 @@ public final class NetChannel
      * @throws JCSPNetworkException
      *             Thrown if something goes wrong in the underlying architecture
      */
-    public static NetSharedChannelOutput any2net(NodeID nodeID, int vcn, int immunityLevel,
+    public static <T> NetSharedChannelOutput<T> any2net(NodeID nodeID, int vcn, int immunityLevel,
                                                  NetworkMessageFilter.FilterTx filter)
         throws JCSPNetworkException
     {
@@ -653,7 +653,7 @@ public final class NetChannel
      * @throws JCSPNetworkException
      *             Thrown if something goes wrong in the underlying architecture
      */
-    public static NetChannelOutput one2net(NodeAddress nodeAddr, int vcn)
+    public static <T> NetChannelOutput<T> one2net(NodeAddress nodeAddr, int vcn)
         throws JCSPNetworkException
     {
         return factory.one2net(nodeAddr, vcn);
@@ -673,7 +673,7 @@ public final class NetChannel
      * @throws JCSPNetworkException
      *             Thrown if something goes wrong in the underlying architecture
      */
-    public static NetChannelOutput one2net(NodeAddress nodeAddr, int vcn, int immunityLevel)
+    public static <T> NetChannelOutput<T> one2net(NodeAddress nodeAddr, int vcn, int immunityLevel)
         throws JCSPNetworkException
     {
         return factory.one2net(nodeAddr, vcn, immunityLevel);
@@ -693,7 +693,7 @@ public final class NetChannel
      * @throws JCSPNetworkException
      *             Thrown if something goes wrong in the underlying architecture
      */
-    public static NetChannelOutput one2net(NodeAddress nodeAddr, int vcn, NetworkMessageFilter.FilterTx filter)
+    public static <T> NetChannelOutput<T> one2net(NodeAddress nodeAddr, int vcn, NetworkMessageFilter.FilterTx filter)
         throws JCSPNetworkException
     {
         return factory.one2net(nodeAddr, vcn, filter);
@@ -715,7 +715,7 @@ public final class NetChannel
      * @throws JCSPNetworkException
      *             Thrown if something goes wrong in the underlying architecture
      */
-    public static NetChannelOutput one2net(NodeAddress nodeAddr, int vcn, int immunityLevel,
+    public static <T> NetChannelOutput<T> one2net(NodeAddress nodeAddr, int vcn, int immunityLevel,
             NetworkMessageFilter.FilterTx filter)
         throws JCSPNetworkException
     {
@@ -733,7 +733,7 @@ public final class NetChannel
      * @throws JCSPNetworkException
      *             Thrown if something goes wrong in the underlying architecture
      */
-    public static NetSharedChannelOutput any2net(NodeAddress nodeAddr, int vcn)
+    public static <T> NetSharedChannelOutput<T> any2net(NodeAddress nodeAddr, int vcn)
         throws JCSPNetworkException
     {
         return factory.any2net(nodeAddr, vcn);
@@ -753,7 +753,7 @@ public final class NetChannel
      * @throws JCSPNetworkException
      *             Thrown if something goes wrong in the underlying architecture
      */
-    public static NetSharedChannelOutput any2net(NodeAddress nodeAddr, int vcn, int immunityLevel)
+    public static <T> NetSharedChannelOutput<T> any2net(NodeAddress nodeAddr, int vcn, int immunityLevel)
         throws JCSPNetworkException
     {
         return factory.any2net(nodeAddr, vcn, immunityLevel);
@@ -773,7 +773,7 @@ public final class NetChannel
      * @throws JCSPNetworkException
      *             Thrown if something goes wrong in the underlying architecture
      */
-    public static NetSharedChannelOutput any2net(NodeAddress nodeAddr, int vcn, NetworkMessageFilter.FilterTx filter)
+    public static <T> NetSharedChannelOutput<T> any2net(NodeAddress nodeAddr, int vcn, NetworkMessageFilter.FilterTx filter)
         throws JCSPNetworkException
     {
         return factory.any2net(nodeAddr, vcn, filter);
@@ -795,7 +795,7 @@ public final class NetChannel
      * @throws JCSPNetworkException
      *             Thrown if something goes wrong in the underlying architecture
      */
-    public static NetSharedChannelOutput any2net(NodeAddress nodeAddr, int vcn, int immunityLevel,
+    public static <T> NetSharedChannelOutput<T> any2net(NodeAddress nodeAddr, int vcn, int immunityLevel,
             NetworkMessageFilter.FilterTx filter)
         throws JCSPNetworkException
     {

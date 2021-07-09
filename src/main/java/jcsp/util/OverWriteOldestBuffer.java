@@ -45,10 +45,10 @@ import java.io.Serializable;
  * @author P.D. Austin
  */
 
-public class OverWriteOldestBuffer implements ChannelDataStore, Serializable
+public class OverWriteOldestBuffer<T> implements ChannelDataStore<T>, Serializable
 {
     /** The storage for the buffered Objects */
-    private final Object[] buffer;
+    private final T[] buffer;
 
     /** The number of Objects stored in the Buffer */
     private int counter = 0;
@@ -74,7 +74,7 @@ public class OverWriteOldestBuffer implements ChannelDataStore, Serializable
         if (size <= 0)
             throw new BufferSizeError
                     ("\n*** Attempt to create an overwriting buffered channel with negative or zero capacity");
-        buffer = new Object[size];
+        buffer = (T[]) new Object[size];
     }
 
     /**
@@ -84,9 +84,9 @@ public class OverWriteOldestBuffer implements ChannelDataStore, Serializable
      *
      * @return the oldest <TT>Object</TT> from the <TT>OverWriteOldestBuffer</TT>
      */
-    public Object get()
+    public T get()
     {
-        Object value = buffer[firstIndex];
+        T value = buffer[firstIndex];
         buffer[firstIndex] = null;
         firstIndex = (firstIndex + 1) % buffer.length;
         counter--;
@@ -117,7 +117,7 @@ public class OverWriteOldestBuffer implements ChannelDataStore, Serializable
      * 
      * @return The oldest value in the buffer at this time
      */
-    public Object startGet()
+    public T startGet()
     {
       valueWrittenWhileFull = false;
       return buffer[firstIndex];
@@ -146,7 +146,7 @@ public class OverWriteOldestBuffer implements ChannelDataStore, Serializable
      *
      * @param value the Object to put into the OverWriteOldestBuffer
      */
-    public void put(Object value)
+    public void put(T value)
     {
         if (counter == buffer.length)
         {

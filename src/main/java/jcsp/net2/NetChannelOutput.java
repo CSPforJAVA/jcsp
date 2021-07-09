@@ -36,8 +36,8 @@ import jcsp.lang.ChannelOutput;
  * @see NetChannel
  * @author Kevin Chalmers (updated from Quickstone Technologies)
  */
-public interface NetChannelOutput
-    extends ChannelOutput, Networked
+public interface NetChannelOutput<T>
+    extends ChannelOutput<T>, Networked
 {
     /**
      * Sends a message to the input end of the channel asynchronously (no blocking)
@@ -49,7 +49,7 @@ public interface NetChannelOutput
      * @throws NetworkPoisonException
      *             Thrown if the channel is poisoned
      */
-    public void asyncWrite(Object obj)
+    public void asyncWrite(T obj)
         throws JCSPNetworkException, NetworkPoisonException;
 
     /**

@@ -25,7 +25,7 @@ package jcsp.lang;
  *
  * @author Quickstone Technologies Limited
  */
-interface ConnectionWithSharedAltingClient
+interface ConnectionWithSharedAltingClient<T>
 {
-    public SharedAltingConnectionClient client();
+    public SharedAltingConnectionClient<T> client();
 }
