@@ -75,10 +75,12 @@ class Any2OneImpl<T> implements ChannelInternals<T>, Any2OneChannel<T> {
 	}
 
 	public AltingChannelInput<T> in() {
+                //TODO BUG Immunity wrong for poisonable channels.  Also check o2o, o2a, etc.
 		return new AltingChannelInputImpl<T>(channel,0);
 	}
 
 	public SharedChannelOutput<T> out() {
+                //TODO BUG Immunity wrong for poisonable channels.  Also check o2o, o2a, etc.
 		return new SharedChannelOutputImpl<T>(this,0);
 	}
 
