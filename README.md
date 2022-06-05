@@ -9,7 +9,7 @@ This version is known to work with Java versions 6 upwards including Java 9+.
 
 Versions prior to 1.1.9 do not have a formal release on GitHub as the build was intended for publication 
 on jcenter() using bintray.  When Bintray was made unavailable (May 2021) it was decided to move
-the library to another repository and JitPack was chosen.  Version 1.1.0 was still available
+the library to another repository and Gitnub packages was chosen.  Version 1.1.0 was still available
 until Bintray was removed.
 
 1.1.9 is the version that was created for Github Packages.  The only change was to the 
@@ -17,7 +17,7 @@ build.gradle file.
 The coding of the JCSP library was not changed.  The code for the JCSPdemos was changed only to modify the 
 build file to refer also to Github packages.  
 Version 1.1.9 was created using Java 8.  
-The build.gradle file creates the sources jar.
+The build.gradle file creates the sources jar which then provides documentation in an IDE.
 
 In order to use the jcsp library the following are required in the gradle.build file.
 <pre>
@@ -94,7 +94,7 @@ Available at:
 
 Special thanks are owed to Paul Austin, who developed the original JCSP library.
 
-**Using the Library**
+**Using the Library on Bintray (will be removed in due course)**
 
 In a build.gradle file you should use, the following to access the library:
 
