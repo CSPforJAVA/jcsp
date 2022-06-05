@@ -4,10 +4,11 @@ plugins {
 }
 
 group 'cspforjava'
-version '1.1.9'
+version '1.1.10'
 // 1.1.0 was available from jcentre() repository
 //version 1.1.8 Java8 available as a GitHub release
 // version 1.1.9 Java8 available as a Github Package
+// version 1.1.10 Java 11 available as Github Package
 
 repositories {
     mavenCentral()
@@ -19,7 +20,7 @@ task sourcesJar(type: Jar) {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.13.1'
+    testImplementation group: 'junit', name: 'junit', version: '4.13.1'
 }
 
 artifacts {
