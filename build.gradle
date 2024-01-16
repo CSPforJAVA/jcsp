@@ -8,6 +8,12 @@ version '1.2.0'
 // 1.1.0 was available from jcentre() repository
 //version 1.1.8 Java8 available as a GitHub release
 // version 1.1.9 Java8 available as a Github Package
+// version 1.1.10 Java 11 available as Github Package
+
+String propertyFileName = "C:/Github/gradle.properties"
+File propsFile = new File(propertyFileName)
+Properties props = new Properties()
+props.load(propsFile.newDataInputStream())
 
 repositories {
     mavenCentral()
@@ -19,7 +25,7 @@ task sourcesJar(type: Jar) {
 }
 
 dependencies {
-    testCompileOnly group: 'junit', name: 'junit', version: '4.13.1'
+    testImplementation group: 'junit', name: 'junit', version: '4.13.1'
 }
 
 artifacts {
@@ -32,8 +38,11 @@ publishing {
             name = "GitHubPackages"
             url = "https://maven.pkg.github.com/CSPforJAVA/jcsp"
             credentials {
-                username = project.findProperty("gpr.user")
-                password = project.findProperty("gpr.key")
+//      if using a gradle.properties file within project structure
+//            username = project.findProperty("gpr.user")
+//            password = project.findProperty("gpr.key")
+                username = props.getProperty("gpr.user")
+                password = props.getProperty("gpr.key")
             }
         }
     }
