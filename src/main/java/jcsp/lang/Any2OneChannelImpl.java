@@ -32,9 +32,9 @@ package jcsp.lang;
  * @author P.D. Austin and P.H. Welch
  */
 
-class Any2OneChannelImpl extends Any2OneImpl
+class Any2OneChannelImpl<T> extends Any2OneImpl<T>
 {
 	Any2OneChannelImpl() {
-		super(new One2OneChannelImpl());
+		super(new One2OneChannelImpl<T>());
 	}
 }

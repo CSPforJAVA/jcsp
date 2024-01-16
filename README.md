@@ -7,6 +7,8 @@ This version is known to work with Java versions 6 upwards including Java 9+.
 
 **Version History**
 
+Version 1.2.0 introduced generics to channels, e.g. AltingChannelInput<String>.
+
 Versions prior to 1.1.9 do not have a formal release on GitHub as the build was intended for publication 
 on jcenter() using bintray.  When Bintray was made unavailable (May 2021) it was decided to move
 the library to another repository and Gitnub packages was chosen.  Version 1.1.0 was still available
@@ -34,7 +36,7 @@ repositories {
 }
 
 dependencies {
-  compile 'cspforjava:jcsp:1.1.9'
+  compile 'cspforjava:jcsp:1.2.0'
 }
 </pre>
 
@@ -103,7 +105,7 @@ repositories {
 }
 
 dependencies {
-  compile 'cspforjava:jcsp:1.1.0'
+  compile 'cspforjava:jcsp:1.1.1'
   compile group: 'junit', name: 'junit', version: '4.12'
 }
 
@@ -113,7 +115,7 @@ dependencies {
 The src folder contains both main and test folders in the format used by Gradle.
 To install to your local Maven repo, use
 
-gradle clean install
+gradle clean publishToMavenLocal
 
 **References**
 
@@ -199,4 +201,4 @@ Email messages can be sent to either CSPforJAVA@outlook.com or CSPforJava@gmail.
 
 **_Version Comments_**
 jcsp-alpha-1.1.2 removed the win32 folder and removed refernces to it from the jcsp/net package.
-jcsp-1.1.0.jar is the most up-to-date version
+jcsp-1.1.1.jar is the most up-to-date version

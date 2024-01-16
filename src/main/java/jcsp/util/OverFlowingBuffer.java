@@ -46,9 +46,9 @@ import java.io.Serializable;
  * @author P.D. Austin
  */
 
-public class OverFlowingBuffer implements ChannelDataStore, Serializable {
+public class OverFlowingBuffer<T> implements ChannelDataStore<T>, Serializable {
     /** The storage for the buffered Objects */
-    private final Object[] buffer;
+    private final T[] buffer;
 
     /** The number of Objects stored in the Buffer */
     private int counter = 0;
@@ -73,7 +73,7 @@ public class OverFlowingBuffer implements ChannelDataStore, Serializable {
                     "\n*** Attempt to create an overflowing buffered channel with negative or zero capacity"
                     );
         }
-        buffer = new Object[size];
+        buffer = (T[]) new Object[size];
     }
 
     /**
@@ -83,8 +83,8 @@ public class OverFlowingBuffer implements ChannelDataStore, Serializable {
      *
      * @return the oldest <TT>Object</TT> from the <TT>OverFlowingBuffer</TT>
      */
-    public Object get() {
-        Object value = buffer[firstIndex];
+    public T get() {
+        T value = buffer[firstIndex];
         buffer[firstIndex] = null;
         firstIndex = (firstIndex + 1) % buffer.length;
         counter--;
@@ -98,7 +98,7 @@ public class OverFlowingBuffer implements ChannelDataStore, Serializable {
      *
      * @return the oldest <TT>Object</TT> from the <TT>Buffer</TT>
      */
-    public Object startGet()
+    public T startGet()
     {
       return buffer[firstIndex];
     }
@@ -120,7 +120,7 @@ public class OverFlowingBuffer implements ChannelDataStore, Serializable {
      *
      * @param value the Object to put into the OverFlowingBuffer
      */
-    public void put(Object value) {
+    public void put(T value) {
         if (counter < buffer.length) {
             buffer[lastIndex] = value;
             lastIndex = (lastIndex + 1) % buffer.length;

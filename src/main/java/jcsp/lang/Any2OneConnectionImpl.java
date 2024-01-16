@@ -28,7 +28,7 @@ import jcsp.util.*;
  *
  * @author Quickstone Technologies Limited
  */
-class Any2OneConnectionImpl implements Any2OneConnection
+class Any2OneConnectionImpl<T> implements Any2OneConnection<T>
 {
     private AltingConnectionServer server;
     private One2OneChannel chanToServer;

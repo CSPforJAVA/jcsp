@@ -23,7 +23,7 @@ package jcsp.lang;
     /**
  * @author Quickstone Technologies Limited
  */
-class ConnectionClientOpenMessage extends ConnectionClientMessage
+class ConnectionClientOpenMessage<T> extends ConnectionClientMessage<T>
 {
-    ChannelOutput replyChannel;
+    ChannelOutput<ConnectionMessage<T>> replyChannel;
 }

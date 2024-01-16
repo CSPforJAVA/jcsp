@@ -653,7 +653,7 @@ public abstract class Any2OneCallChannel extends AltingChannelAccept implements 
     /**
      * This is used to synchronise the calling and accepting process.
      */
-    final private One2OneChannelImpl d = new One2OneChannelImpl();
+    final private Any2OneChannelImpl d = new Any2OneChannelImpl();
 
     /**
      * This holds a reference to a <I>server</I> process so that a <I>client</I> may

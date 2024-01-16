@@ -37,8 +37,8 @@ import jcsp.util.InfiniteBuffer;
  * @see NetChannel
  * @author Kevin Chalmers (updated from Quickstone Technologies)
  */
-final class Net2OneChannel
-    extends NetAltingChannelInput
+final class Net2OneChannel<T>
+    extends NetAltingChannelInput<T>
 {
     /**
      * The input channel coming into the networked channel input object from Links or locally connected net channel
@@ -76,7 +76,7 @@ final class Net2OneChannel
      *            The filter on the channel used to convert read bytes into an object
      * @return A new Net2OneChannel
      */
-    static Net2OneChannel create(int poisonImmunity, FilterRx filter)
+    static <T2> Net2OneChannel<T2> create(int poisonImmunity, FilterRx filter)
     {
         // Create a new ChannelData object
         ChannelData data = new ChannelData();
@@ -94,7 +94,7 @@ final class Net2OneChannel
         ChannelManager.getInstance().create(data);
 
         // Return a new Net2OneChannel
-        return new Net2OneChannel(chan.in(), data, filter);
+        return new Net2OneChannel<T2>(chan.in(), data, filter);
     }
 
     /**
@@ -111,7 +111,7 @@ final class Net2OneChannel
      * @throws IllegalArgumentException
      *             Thrown if the index given is already allocated within the ChannelManager
      */
-    static Net2OneChannel create(int index, int poisonImmunity, FilterRx filter)
+    static <T2> Net2OneChannel<T2> create(int index, int poisonImmunity, FilterRx filter)
         throws IllegalArgumentException
     {
         // Create a new ChannelData object
@@ -130,7 +130,7 @@ final class Net2OneChannel
         ChannelManager.getInstance().create(index, data);
 
         // Return a new Net2OneChannel
-        return new Net2OneChannel(chan.in(), data, filter);
+        return new Net2OneChannel<T2>(chan.in(), data, filter);
     }
 
     /**
@@ -328,7 +328,7 @@ final class Net2OneChannel
      * @throws IllegalStateException
      *             Thrown if the channel is in an extended read state
      */
-    public Object read()
+    public T read()
         throws JCSPNetworkException, NetworkPoisonException, IllegalStateException
     {
         // First check our state
@@ -375,7 +375,7 @@ final class Net2OneChannel
                         // Write ACK to the channel attached to the message
                         msg.toLink.write(ack);
                         // Return read object
-                        return toReturn;
+                        return (T) toReturn; // Messy cast. We'll trust the sender.
                     }
                     case NetworkProtocol.ASYNC_SEND:
                     {
@@ -383,7 +383,7 @@ final class Net2OneChannel
                         // Convert the message into the object again. This may throw an IOException
                         Object toReturn = this.messageFilter.filterRX(msg.data);
                         // Return read object
-                        return toReturn;
+                        return (T) toReturn; // Messy cast. We'll trust the sender.
                     }
                     case NetworkProtocol.POISON:
                         // First we change our poison level. Poison level is Attribute 2 of the message
@@ -462,7 +462,7 @@ final class Net2OneChannel
      * @throws NetworkPoisonException
      *             Thrown if the channel is poisoned.
      */
-    public Object startRead()
+    public T startRead()
         throws JCSPNetworkException, IllegalStateException, NetworkPoisonException
     {
         // First check our state
@@ -503,7 +503,12 @@ final class Net2OneChannel
                         // operation
                         this.lastRead = msg;
 
-                        return toReturn;
+                        return (T) toReturn; // Messy cast, but as we can't
+											 // check types at both ends, this
+											 // is sufficient (We'll get a run
+											 // time ClassCastException if the
+											 // sender sends us the 'wrong' (ie.
+											 // not T) type
                     }
                     case NetworkProtocol.POISON:
                         // First we change our poison level. Poison level is Attribute 2 of the message

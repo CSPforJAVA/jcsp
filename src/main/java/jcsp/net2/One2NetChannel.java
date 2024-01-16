@@ -38,8 +38,8 @@ import jcsp.util.InfiniteBuffer;
  * @see NetChannel
  * @author Kevin Chalmers (Updated from Quickstone Technologies)
  */
-final class One2NetChannel
-    implements NetChannelOutput
+final class One2NetChannel<T>
+    implements NetChannelOutput<T>
 {
 
     /**
@@ -102,7 +102,7 @@ final class One2NetChannel
      * @throws JCSPNetworkException
      *             Thrown if the connection to the remote Node fails
      */
-    static One2NetChannel create(NetChannelLocation loc, int immunity, FilterTx filter)
+    static <T2> One2NetChannel<T2> create(NetChannelLocation loc, int immunity, FilterTx filter)
         throws JCSPNetworkException
     {
         // Create the channel data structure
@@ -126,7 +126,7 @@ final class One2NetChannel
         if (loc.getNodeID().equals(Node.getInstance().getNodeID()))
         {
             toLink = ChannelManager.getInstance().getChannel(loc.getVCN()).toChannel;
-            return new One2NetChannel(chan.in(), toLink, null, data, loc, immunity, filter);
+            return new One2NetChannel<T2>(chan.in(), toLink, null, data, loc, immunity, filter);
         }
 
         // Connect to remote node if necessary
@@ -143,7 +143,7 @@ final class One2NetChannel
         toLink = link.getTxChannel();
 
         // Return new channel
-        return new One2NetChannel(chan.in(), toLink, link, data, loc, immunity, filter);
+        return new One2NetChannel<T2>(chan.in(), toLink, link, data, loc, immunity, filter);
     }
 
     /**
@@ -287,7 +287,7 @@ final class One2NetChannel
      * @throws PoisonException
      *             Thrown if the channel has been poisoned
      */
-    public void write(Object object)
+    public void write(T object)
         throws JCSPNetworkException, PoisonException
     {
         // First we do a state check, and throw an exception if necessary
@@ -472,7 +472,7 @@ final class One2NetChannel
      * @throws PoisonException
      *             Thrown if the channel is poisoned
      */
-    public void asyncWrite(Object object)
+    public void asyncWrite(T object)
         throws JCSPNetworkException, PoisonException
     {
         // First we do a state check, and throw an exception if necessary
